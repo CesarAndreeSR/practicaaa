@@ -29,10 +29,10 @@
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Categorías
-                
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="usuarios" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -41,9 +41,11 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
-            <a href="usuarios" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+            <a href="productos" class="nav-link">
+              <i class="nav-icon fa fa-id-card"></i>
+              <i class="bi bi-cart-fill"></i>
               <p>
                 Productos              
               </p>

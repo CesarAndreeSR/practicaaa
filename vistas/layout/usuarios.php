@@ -76,9 +76,9 @@
             <div class="col-md-12">
               <div class="form-group">
                 <div class="panel">
-                  <input type="file" id="nuevaFoto" name="nuevaFoto">
+                  <input type="file" id="nuevaFoto" name="nuevaFoto" class="nuevaFoto" onchange="previewImage(event)">
                   <p class="help-block">Peso máximo de la foto 200 MB</p>
-                  <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
+                  <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px" id="imgPreview">
                 </div>
               </div>
             </div>
@@ -97,3 +97,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  function previewImage(event){
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('imgPreview');
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script>
