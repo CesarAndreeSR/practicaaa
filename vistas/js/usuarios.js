@@ -1,21 +1,21 @@
 $(".nuevaFoto").change(function(){
-    var image = this.files[0]; // Corrected 'this.file' to 'this.files'
+    var image = this.files[0]; 
 
-    // Validating the image format (jpg or png)
+   
     if (image["type"] != "image/jpeg" && image["type"] != "image/png") {
         $(".nuevaFoto").val("");
         swal({
             title: "Error al subir imagen",
             text: "La imagen debe estar en formato JPG o PNG",
-            type: "error", // Corrected 'Error' to 'error'
-            confirmButtonText: "Cerrar" // Corrected 'confirmButttonText' to 'confirmButtonText'
+            type: "error", 
+            confirmButtonText: "Cerrar" 
         });
-    } else if(image["size"] > 2000000) { // Checking image size (2MB)
+    } else if(image["size"] > 2000000) { 
         $(".nuevaFoto").val("");
         swal({
-            text: "La imagen debe tener un tamaño máximo de 2MB", // Improved error message
-            type: "error", // Corrected 'Error' to 'error'
-            confirmButtonText: "Cerrar" // Corrected 'confirmButttonText' to 'confirmButtonText'
+            text: "La imagen debe tener un tamaño máximo de 2MB",
+            type: "error",
+            confirmButtonText: "Cerrar" 
         });
     } else {
         var DatosImage = new FileReader();
