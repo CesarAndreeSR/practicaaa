@@ -22,10 +22,24 @@ class ModeloCategorias{
 
     //método mostrar categorias
     public static function modeloMostrarCategoria($tabla, $item, $valor){
-
-
+        if($item !=null){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt ->bindParam(":".$item,$valor,PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetch();
+        }else{
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt ->execute();
+            return $stmt->fetchAll();
+        }
+        
+        $stmt -> closeCursor();
+        $stmt = null;
 
     }
+
+
+    
 
     //método para editar categorias
     public static function modeloEditarCategoria($tabla, $datos){

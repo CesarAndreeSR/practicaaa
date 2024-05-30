@@ -2,7 +2,7 @@
 
 class ControladorPlantilla{
 
-    public static function controladorPlantilla(){
+    public function controladorPlantilla(){
 
         include "vistas/plantilla.php";
 

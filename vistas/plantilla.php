@@ -21,6 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!--DataTables-->
   <link rel="stylesheet" href="vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 </head>
 
@@ -41,9 +42,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $_GET["ruta"] == "usuarios"   ||
         $_GET["ruta"] == "productos"  ||
         $_GET["ruta"] == "clientes"   ||
-        $_GET["ruta"] == "salir") {
+        $_GET["ruta"] == "salir"
+      ) {
 
-        include "layout/". $_GET["ruta"].".php";
+        include "layout/" . $_GET["ruta"] . ".php";
       } else {
         include "layout/404.php";
       }
@@ -76,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- /.content-header -->
 
       <!-- Main content -->
-      
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -96,6 +98,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
+  <!--data tables-->
+  <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <script src="vistas/plugins/jszip/jszip.min.js"></script>
+  <script src="vistas/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="vistas/plugins/pdfmake/vfs_fonts.js"></script>
+
+  <!--js usuario-->
+  <script src="vistas/js/usuarios.js"></script>
+  <script>
+    $(function() {
+      $("#tablas").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "buttons": ["pdf", "csv", "excel", "copy", "print", "colvis"]
+      }).buttons().container().appendTo('#tablas_wrapper .col-md-6:eq(0)')
+
+    });
+  </script>
 </body>
 
 </html>
